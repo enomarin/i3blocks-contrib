@@ -1,6 +1,6 @@
 #!/bin/sh
-init_color=${init_color:-#FFFF00}
-on_color=${on_color:-#00FF00}
+init_color=${alt:-#FFFF00}
+on_color=${active:-#00FF00}
 export init_color on_color
 nmcli -t connection show --active | awk -F ':' '
 BEGIN {

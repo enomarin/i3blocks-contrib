@@ -1,9 +1,7 @@
 #! /bin/sh
 
-DATEFTM="${DATEFTM:-+%a. %d. %b. %Y}"
 SHORTFMT="${SHORTFMT:-+%d.%m.%Y}"
 LABEL="${LABEL:-}"
-blockdate=$(date "$DATEFTM")
 shortblockdate=$(date "$SHORTFMT")
 
 year=$(date '+%Y')
@@ -27,5 +25,4 @@ cal --color=always $month $year \
         -no-custom \
         -p "$date" > /dev/null 
     esac
-echo "$LABEL$blockdate"
 echo "$LABEL$shortblockdate"

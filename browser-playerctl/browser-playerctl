@@ -1,13 +1,7 @@
 #! /bin/sh
-
+artist=$(playerctl metadata artist)
 title=$(playerctl metadata title)
-if [ ${#title} > 27 ]
-then
-	echo "${title::25}..."
-else
-	echo "$title"
-fi
-
+echo "| ${artist::10} – ${title::25} |"
 case "$BLOCK_BUTTON" in
 	1)
 			if playerctl -a status | grep Playing >/dev/null

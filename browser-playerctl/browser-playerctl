@@ -1,0 +1,21 @@
+#! /bin/sh
+
+title=$(playerctl metadata title)
+if [ ${#title} > 27 ]
+then
+	echo "${title::25}..."
+else
+	echo "$title"
+fi
+
+case "$BLOCK_BUTTON" in
+	1)
+			if playerctl -a status | grep Playing >/dev/null
+			then
+				playerctl pause
+			elif playerctl -a status | grep Paused >/dev/null
+                        then
+                                playerctl play
+                        fi
+esac
+
